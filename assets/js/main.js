@@ -1,7 +1,7 @@
-(function($) {
+(function ($) {
     ("use strict");
     // Page loading
-    $(window).on("load", function() {
+    $(window).on("load", function () {
         $("#preloader-active").fadeOut("slow");
     });
     /*-----------------
@@ -9,7 +9,7 @@
     -----------------*/
     var header = $(".sticky-bar");
     var win = $(window);
-    win.on("scroll", function() {
+    win.on("scroll", function () {
         var scroll = win.scrollTop();
         if (scroll < 200) {
             header.removeClass("stick");
@@ -37,7 +37,7 @@
     ------------------------------*/
     if ($(".categories-button-active").length) {
         var searchToggle = $(".categories-button-active");
-        searchToggle.on("click", function(e) {
+        searchToggle.on("click", function (e) {
             e.preventDefault();
             if ($(this).hasClass("open")) {
                 $(this).removeClass("open");
@@ -63,7 +63,7 @@
     }
     // Isotope active
     if ($(".grid").length) {
-        $(".grid").imagesLoaded(function() {
+        $(".grid").imagesLoaded(function () {
             // init Isotope
             var $grid = $(".grid").isotope({
                 itemSelector: ".grid-item",
@@ -81,11 +81,11 @@
         var searchTrigger = $(".search-active"),
             endTriggersearch = $(".search-close"),
             container = $(".main-search-active");
-        searchTrigger.on("click", function(e) {
+        searchTrigger.on("click", function (e) {
             e.preventDefault();
             container.addClass("search-visible");
         });
-        endTriggersearch.on("click", function() {
+        endTriggersearch.on("click", function () {
             container.removeClass("search-visible");
         });
     }
@@ -97,17 +97,17 @@
             container = $(".mobile-header-active"),
             wrapper4 = $("body");
         wrapper4.prepend('<div class="body-overlay-1"></div>');
-        navbarTrigger.on("click", function(e) {
+        navbarTrigger.on("click", function (e) {
             navbarTrigger.toggleClass("burger-close");
             e.preventDefault();
             container.toggleClass("sidebar-visible");
             wrapper4.toggleClass("mobile-menu-active");
         });
-        endTrigger.on("click", function() {
+        endTrigger.on("click", function () {
             container.removeClass("sidebar-visible");
             wrapper4.removeClass("mobile-menu-active");
         });
-        $(".body-overlay-1").on("click", function() {
+        $(".body-overlay-1").on("click", function () {
             container.removeClass("sidebar-visible");
             wrapper4.removeClass("mobile-menu-active");
             navbarTrigger.removeClass("burger-close");
@@ -124,13 +124,13 @@
     /*Close Off Canvas Sub Menu*/
     $offCanvasNavSubMenu.slideUp();
     /*Category Sub Menu Toggle*/
-    $offCanvasNav.on("click", "li a, li .menu-expand", function(e) {
+    $offCanvasNav.on("click", "li a, li .menu-expand", function (e) {
         var $this = $(this);
         if (
             $this
-            .parent()
-            .attr("class")
-            .match(/\b(menu-item-has-children|has-children|has-sub-menu)\b/) &&
+                .parent()
+                .attr("class")
+                .match(/\b(menu-item-has-children|has-children|has-sub-menu)\b/) &&
             ($this.attr("href") === "#" || $this.hasClass("menu-expand"))
         ) {
             e.preventDefault();
@@ -146,29 +146,29 @@
         }
     });
     /*--- language currency active ----*/
-    $(".mobile-language-active").on("click", function(e) {
+    $(".mobile-language-active").on("click", function (e) {
         e.preventDefault();
         $(".lang-dropdown-active").slideToggle(900);
     });
     /*--- categories-button-active-2 ----*/
-    $(".categories-button-active-2").on("click", function(e) {
+    $(".categories-button-active-2").on("click", function (e) {
         e.preventDefault();
         $(".categori-dropdown-active-small").slideToggle(900);
     });
     /*--- Mobile demo active ----*/
     var demo = $(".tm-demo-options-wrapper");
-    $(".view-demo-btn-active").on("click", function(e) {
+    $(".view-demo-btn-active").on("click", function (e) {
         e.preventDefault();
         demo.toggleClass("demo-open");
     });
     /*-----More Menu Open----*/
     $(".more_slide_open").slideUp();
-    $(".more_categories").on("click", function() {
+    $(".more_categories").on("click", function () {
         $(this).toggleClass("show");
         $(".more_slide_open").slideToggle();
     });
     /* --- SwiperJS --- */
-    $(".swiper-group-6").each(function() {
+    $(".swiper-group-6").each(function () {
         var swiper_6_items = new Swiper(this, {
             spaceBetween: 30,
             slidesPerView: 6,
@@ -200,7 +200,7 @@
             }
         });
     });
-    $(".swiper-group-3").each(function() {
+    $(".swiper-group-3").each(function () {
         var swiper_3_items = new Swiper(this, {
             spaceBetween: 30,
             slidesPerView: 3,
@@ -214,7 +214,7 @@
             pagination: {
                 el: ".swiper-pagination",
                 type: "custom",
-                renderCustom: function(swiper, current, total) {
+                renderCustom: function (swiper, current, total) {
                     var customPaginationHtml = "";
                     for (var i = 0; i < total; i++) {
                         //Determine which pager should be activated at this time
@@ -246,7 +246,7 @@
             }
         });
     });
-    $(".swiper-group-2").each(function() {
+    $(".swiper-group-2").each(function () {
         var swiper_2_items = new Swiper(this, {
             spaceBetween: 30,
             slidesPerView: 2,
@@ -260,7 +260,7 @@
             pagination: {
                 el: ".swiper-pagination",
                 type: "custom",
-                renderCustom: function(swiper, current, total) {
+                renderCustom: function (swiper, current, total) {
                     var customPaginationHtml = "";
                     for (var i = 0; i < total; i++) {
                         //Determine which pager should be activated at this time
@@ -296,7 +296,7 @@
         });
     });
     //Dropdown selected item
-    $(".dropdown-menu li a").on("click", function(e) {
+    $(".dropdown-menu li a").on("click", function (e) {
         e.preventDefault();
         $(this)
             .parents(".dropdown")
@@ -304,7 +304,7 @@
             .html($(this).text() + ' <span class="caret"></span>');
         $(this).parents(".dropdown").find(".btn").val($(this).data("value"));
     });
-    $(".list-tags-job .remove-tags-job").on("click", function(e) {
+    $(".list-tags-job .remove-tags-job").on("click", function (e) {
         e.preventDefault();
         $(this).closest(".job-tag").remove();
     });
